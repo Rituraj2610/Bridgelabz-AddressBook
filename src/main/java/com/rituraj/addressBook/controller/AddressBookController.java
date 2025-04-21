@@ -4,8 +4,14 @@ import com.rituraj.addressBook.dto.insertion_dto.ContactAddDTO;
 import com.rituraj.addressBook.dto.update_dto.EmailUpdateDTO;
 import com.rituraj.addressBook.dto.update_dto.NameUpdateDTO;
 import com.rituraj.addressBook.dto.update_dto.PhoneUpdateDTO;
+import com.rituraj.addressBook.model.Person;
+import com.rituraj.addressBook.model.Response;
 import com.rituraj.addressBook.service.AddressBookService;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/address/book")
@@ -18,32 +24,32 @@ public class AddressBookController {
     }
 
     @GetMapping("/contacts")
-    public void getAllContacts(){
-        return addressBookService.getAllContacts();
+    public ResponseEntity<Response> getAllPerson(){
+        return addressBookService.getAllPerson();
     }
 
     @PostMapping("/contacts")
-    public void addContact(@RequestBody ContactAddDTO contactAddDTO){
+    public ResponseEntity<Response> addContact(@RequestBody ContactAddDTO contactAddDTO){
         return addressBookService.addContact(contactAddDTO);
     }
 
     @PutMapping("/email")
-    public void updateEmail(@RequestBody EmailUpdateDTO emailUpdateDTO){
+    public ResponseEntity<Response> updateEmail(@RequestBody EmailUpdateDTO emailUpdateDTO){
         return addressBookService.updateEmail(emailUpdateDTO);
     }
 
     @PutMapping("/phone")
-    public void updatePhone(@RequestBody PhoneUpdateDTO phoneUpdateDTO){
+    public ResponseEntity<Response> updatePhone(@RequestBody PhoneUpdateDTO phoneUpdateDTO){
         return addressBookService.updatePhone(phoneUpdateDTO);
     }
 
     @PutMapping("/name")
-    public void updatePhone(@RequestBody NameUpdateDTO nameUpdateDTO){
+    public ResponseEntity<Response> updateName(@RequestBody NameUpdateDTO nameUpdateDTO){
         return addressBookService.updateName(nameUpdateDTO);
     }
 
     @DeleteMapping("/contact")
-    public void deleteContact(@RequestParam int id){
+    public ResponseEntity<Response> deleteContact(@RequestParam int id){
         return addressBookService.deleteContact(id);
     }
 }

@@ -14,7 +14,6 @@ import lombok.NoArgsConstructor;
 @Data
 public class Email {
     @Id
-//    @GeneratedValue(strategy = GenerationType.AUTO)
     private int person_id;
     private String email_add;
 }
