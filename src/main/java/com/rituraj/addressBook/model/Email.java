@@ -1,9 +1,6 @@
 package com.rituraj.addressBook.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,6 +11,7 @@ import lombok.NoArgsConstructor;
 @Data
 public class Email {
     @Id
+    @JoinColumn(name = "+")
     private int person_id;
     private String email_add;
 }
