@@ -7,12 +7,14 @@ import com.rituraj.addressBook.dto.update_dto.PhoneUpdateDTO;
 import com.rituraj.addressBook.model.Person;
 import com.rituraj.addressBook.model.Response;
 import com.rituraj.addressBook.service.AddressBookService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@Slf4j
 @RestController
 @RequestMapping("/api/v1/address/book")
 public class AddressBookController {
